@@ -1,4 +1,39 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 <h1><%= @dojo.city %> Dojo</h1>
+<% if flash[:success] %>
+	<p><%= flash[:success] %></p>
+<% end %>
 <h5>Address: <%= @dojo.street %></h5>
-<h5>City: <%= @dojo.city %></h5>
+<h5>City: <%= @dojo.city %> State: <%= @dojo.state %></h5>
 <a href="<%= dojos_path %>">Home</a> | <a href="<%= @dojo.id %>/edit">Edit</a>
+<br>
+<h3>Student Roster</h3>
+
+<table class="table-striped">
+	<thead>
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Email</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @students.each do |student| %>
+		<tr>
+			<% if student.dojo_id == @dojo.id %>
+			<td><%= student.first_name %></td>
+			<td><%= student.last_name %></td>
+			<td><%= student.email %></td>
+			<td><a href="<%= student.dojo_id%>/students/<%= student.id%>">Show</a> <a href="<%= @dojo.id %>/students/<%= student.id %>/edit">Edit</a> 
+				<form action="<%= @dojo.id %>/students/<%= student.id %>" method="post">
+					<input type="hidden" name="_method" value="delete">
+					<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"><input type="submit" value="Destroy">
+				</form>
+				</td>
+		</tr>
+			<% end %>
+		<% end %>
+	</tbody>
+</table>
+<p><a href="<%= dojos_path %>">Home</a> | <a href="<%= @dojo.id %>/students/new">Add Student</a></p>

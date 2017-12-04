@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<h1>New Student</h1>
+<% if flash[:errors] %>
+	<% flash[:errors].each do |error| %>
+		<p><%= error %></p>
+	<% end %>
+<% end %>
+<form action="/dojos/<%= @dojo.id %>/students" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+	<p><label for="first_name">First Name: </label>
+	<input type="text" name="student_form[first_name]"></p>
+	<p><label for="last_name">Last Name: </label>
+	<input type="text" name="student_form[last_name]"></p>
+	<p><label for="email">Email Address: </label>
+	<input type="text" name="student_form[email]"></p>
+	<p> Dojo: <select name="student_form[dojo_id]">
+		<option value="<%= @dojo.id %>"><%= @dojo.city %></option>
+		<% @dojos.each do |dojo| %>
+			<% if dojo.id != @dojo.id %>
+		<option value="<%= dojo.id %>"><%= dojo.city %></option>
+			<% end %>
+		<% end %>
+	</select>
+	</p>
+	<input type="submit" name="submit" value="Create">
+</form>
+
+<p><a href="<%= dojos_path %>">Home</a> | <a href="/dojos/<%= @dojo.id %>"><%= @dojo.city %></a></p>
