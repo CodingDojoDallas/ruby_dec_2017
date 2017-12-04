@@ -1,0 +1,13 @@
+<html>
+<head>
+  <title><%= yield :title %></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="col-sm-6"><%= yield :user_table %></div>
+	<div class="col-sm-6"><%= yield :user_form %></div>
+
+</body>
+</html>
