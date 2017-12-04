@@ -41,8 +41,8 @@ class StudentsController < ApplicationController
   		url = "/dojos/#{@dojo.id}"
   		redirect_to url
   	else
-		flash[:errors] = student.errors.full_messages
-		redirect_to :back
+		  flash[:errors] = @student.errors.full_messages
+		  redirect_to :back
 	end
   end
 
