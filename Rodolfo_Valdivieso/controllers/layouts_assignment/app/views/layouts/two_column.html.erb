@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Users</title>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+
+	  <!-- Dynamically add some Javascript -->
+	  <script type="text/javascript">
+	      <%= yield :some_javascript %>
+	  </script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+				<h1><%= yield :title %></h1>
+				<%= yield :users %>
+			</div>
+			<div  class="col-sm-6">
+				<%= yield :form %>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>
+
