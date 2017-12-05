@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ninja Gold</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            margin-bottom: 15px;
+        }
+        #wrapper{
+            width: 930px;
+            padding: 20px;
+        }
+        div.options{
+            display: inline-block;
+            width: 195.5px;
+            margin-right: 20px;
+            border: 1px solid black;
+            padding: 10px;
+        }
+        div.options#last{
+            margin-right: 0px;
+        }
+        div#messages{
+            margin-top: 20px;
+            width: 898px;
+            padding: 15px;
+            height: 150px;
+            border: 1px solid black;
+            overflow-y: scroll;
+        }
+        .red{
+            color: red;
+        }
+        .green{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>Your Gold: <%= session[:gold] %></h1>
+        <div class="options">
+            <h2>Farm</h2>
+            <p>(Earns 10-20 golds)</p>
+            <form action="/submit" method="post">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input type="hidden" name="building" value="farm">
+                <input type="submit" value="Find Gold!">
+            </form>
+        </div><!--
+     --><div class="options">
+            <h2>Cave</h2>
+            <p>(Earns 5-10 golds)</p>
+            <form action="/submit" method="post">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input type="hidden" name="building" value="cave">
+                <input type="submit" value="Find Gold!">
+            </form>
+        </div><!--
+     --><div class="options">
+            <h2>House</h2>
+            <p>(Earns 2-5 golds)</p>
+            <form action="/submit" method="post">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input type="hidden" name="building" value="house">
+                <input type="submit" value="Find Gold!">
+            </form>
+        </div><!--
+     --><div class="options" id="last">
+            <h2>Casino</h2>
+            <p>(Takes 0-50 golds)</p>
+            <form action="/submit" method="post">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input type="hidden" name="building" value="casino">
+                <input type="submit" value="Find Gold!">
+            </form>
+        </div><!--
+     --><div id="messages">
+            <% session[:activities].reverse.each do |activity| %>
+                <% if activity[0] == 'L' %>
+                <p class="red"><%= activity %></p>
+                <% else %>
+                <p class="green"><%= activity %></p>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+</body>
+</html>

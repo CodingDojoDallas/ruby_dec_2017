@@ -1,0 +1,8 @@
+User.create(first_name: "Stephen", last_name: "Weil")
+User.create(first_name: "Billy", last_name: "Bob")
+User.create(first_name: "Jay", last_name: "Z")
+Friendship.create(user: User.first, friend: User.last)
+Friendship.create(user: User.last, friend: User.first)
+friends = User.first.friends.select("id")
+not_friends = User.where.not("id in (?)", friends)
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Survey Form Result</title>
+    <style>
+        div.success {
+            border: 1px solid black;
+            background-color: lightgreen;
+            padding: 1em;
+        }
+    </style>
+</head>
+<body>
+    <% if flash[:success] %>
+        <div class="success"><%= flash[:success] %></div>
+    <% end %>
+    <h1>Submitted Information</h1>
+    <p>Name: <%= session[:data]['name'] %></p>
+    <p>Location: <%= session[:data]['location'] %></p>
+    <p>Favorite Language: <%= session[:data]['language'] %></p>
+    <p>Comment: <%= session[:data]['comment'] %></p>
+</body>
+</html>
