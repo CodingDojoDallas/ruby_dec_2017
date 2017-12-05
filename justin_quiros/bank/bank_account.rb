@@ -2,8 +2,8 @@ class BankAccount
 	@@no_of_accounts = 0
 	private
 		@interest
-
 	public
+	attr_accessor :check_bal, :save_bal, :account_total
 	def initialize
 		create_account()
 		@@no_of_accounts += 1
@@ -41,7 +41,7 @@ class BankAccount
 				@save_bal -= num
 				self
 			else @save_bal < num
-					puts "Sorry, this account has insufficient funds."
+					raise "Sorry, this account has insufficient funds."
 					self
 			end
 		end
@@ -50,7 +50,7 @@ class BankAccount
 				@check_bal -= num
 				self
 			else @check_bal < num
-					puts "Sorry, this account has insufficient funds."
+					raise "Sorry, this account has insufficient funds."
 					self
 			end
 		end	
@@ -58,8 +58,7 @@ class BankAccount
 	end
 
 	def account_total
-		puts "Your total balance is #{@check_bal + @save_bal}"
-		self
+		"Your total balance is #{@check_bal + @save_bal}"
 	end
 
 	def self.no_of_accounts
@@ -85,10 +84,6 @@ class BankAccount
 			return @interest
 		end
 end
-
-user1 = BankAccount.new.deposit(1000, "savings").withdrawl(20, "savings").deposit(1000, "checkings").withdrawl(100, "checkings").account_total
-user1.account_information
-p "This bank has " + BankAccount.no_of_accounts.to_s + " bank accounts."
 
 
 
