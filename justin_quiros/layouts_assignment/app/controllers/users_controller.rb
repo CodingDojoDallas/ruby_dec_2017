@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 		flash[:success] = "You have successfully created a User!"
 		redirect_to users_path
   	else 
-  		flash[:errors] = @user.errors.full_messages
+  		flash[:errors] = "#{@user} does not exist in our database."
   		redirect_to :back
   	end
   end
