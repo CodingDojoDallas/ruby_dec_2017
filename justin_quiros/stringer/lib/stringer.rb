@@ -31,7 +31,7 @@ module Stringer
 
 	def self.removify(string, remove)
 		string = string.split(" ")
-	    string.reject! { |x| x == remove }
-	    string.join(" ")
+		string.reject! { |x| x == remove }
+		string.join(" ")
 	end
 end
