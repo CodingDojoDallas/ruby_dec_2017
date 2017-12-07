@@ -37,6 +37,7 @@ Layouts / Nested Resources - https://youtu.be/CCRa8GhtJ54 <br>
 
 ## Demos
 Ninja Gold - https://youtu.be/KvHGoN-kw-s <br>
+Student Dashboard - https://youtu.be/WiQegfcDzpw <br>
 
 ## Resources
 
