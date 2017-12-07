@@ -1,4 +1,4 @@
 <% if current_user %>
 <h1>Welcome, <%= current_user.name %></h1>
-<a href="">Edit Profile</a>
+<a href="/users/<%= current_user.id %>/edit">Edit Profile</a>
 <% end %> 
