@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get 'users/new' => 'users#new', as: :new_user
   post 'users/login' => 'sessions#create', as: :login
   get 'users/show' => 'users#show', as: :users_show
+  get 'users/new' => 'users#new', as: :users_new
+  post 'users/create' => 'users#create', as: :create_user
   get 'users/edit'
   delete 'sessions/:user_id' => 'sessions#destroy'
   get 'sessions/new' => 'sessions#new', as: :new_session

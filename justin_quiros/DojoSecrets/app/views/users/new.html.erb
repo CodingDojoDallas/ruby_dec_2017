@@ -1,2 +1,23 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class="row col-lg-6">
+	<% content_for :title, "DojoSecrets" %>
+		<h1>Create User</h1>
+		<% if flash[:errors] %>
+			<% flash[:errors].each do |error| %>
+				<p><%= error %></p>
+			<% end %>
+		<% end %>
+		<div class="form-group">
+			<form action="<%= create_user_path %>" method="post">
+				<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+				<p><label for="name">Name: </label>
+				<input type="text" name="user_form[name]"></p>
+				<p><label for="email">Email: </label>
+				<input type="text" name="user_form[email]"></p>
+				<p><label for="password">Password: </label>
+				<input type="password" name="user_form[password]"></p>
+				<p><label for="conf_password">Confirm Password: </label>
+				<input type="password" name="user_form[conf_password]"></p>
+				<input type="submit" name="submit" value="Join">
+			</form>
+		</div>
+</div>
