@@ -10,11 +10,3 @@ class LikesController < ApplicationController
 	redirect_to "/secrets" 
   end
 end
-
-
-
-
-
-
-
-# secret.users << User.first
