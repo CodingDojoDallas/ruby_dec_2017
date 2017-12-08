@@ -7,9 +7,14 @@ Rails.application.routes.draw do
   post 'users/create' => 'users#create', as: :create_user
   post 'users/update' => 'users#update', as: :users_update
   post 'users/delete' => 'users#delete', as: :users_delete
+  
+
+
   delete 'sessions/:user_id' => 'sessions#destroy'
   get 'sessions/new' => 'sessions#new', as: :new_session
   
+
+  get'secrets' => 'users#secrets', as: :secrets
   
 
   # The priority is based upon order of creation: first created -> highest priority.

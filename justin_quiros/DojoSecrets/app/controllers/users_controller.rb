@@ -47,6 +47,12 @@ class UsersController < ApplicationController
     redirect_to new_user_path
   end
 
+  def secrets
+    @secrets = Secret.all
+    p @secrets
+  end
+
+
   private
     def form_params
       params.require(:user_form).permit(:name, :email, :password)
