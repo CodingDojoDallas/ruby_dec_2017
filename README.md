@@ -35,6 +35,7 @@ Controllers - https://youtu.be/k4ttpRgRGV8 <br>
 Forms / Named Routes - https://youtu.be/B3mOcqreZnk <br>
 Layouts / Nested Resources - https://youtu.be/CCRa8GhtJ54 <br>
 Rails TDD - https://youtu.be/zTjWLJdkyDo <br>
+Authentication - https://youtu.be/z3YImITMi8E (Login and Registration) <br>
 
 ## Demos
 Ninja Gold - https://youtu.be/KvHGoN-kw-s <br>
