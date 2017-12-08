@@ -1,6 +1,7 @@
 class SecretsController < ApplicationController
 	def index
 		@secrets = Secret.all
+		@likes = Like.all
 	end
 
 	def create
