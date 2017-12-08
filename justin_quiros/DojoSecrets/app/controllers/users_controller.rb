@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    @mysecrets = User.find(current_user).secrets
+    p current_user
   end
 
   def create
@@ -46,12 +47,6 @@ class UsersController < ApplicationController
     reset_session
     redirect_to new_user_path
   end
-
-  def secrets
-    @secrets = Secret.all
-    p @secrets
-  end
-
 
   private
     def form_params

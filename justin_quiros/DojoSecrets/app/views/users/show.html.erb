@@ -1,4 +1,31 @@
 <% if current_user %>
 <h1>Welcome, <%= current_user.name %></h1>
-<a href="/users/<%= current_user.id %>/edit">Edit Profile</a>
+<p><a href="/users/<%= current_user.id %>/edit">Edit Profile</a></p>
 <% end %> 
+
+<div class="row col-lg-6">
+	<% content_for :title, "DojoSecrets" %>
+		<p><%= flash[:errors] %></p>
+		<h4>New Secret</h4>
+		<div class="form-group">
+			<form action="<%= secrets_create_path %>" method="post">
+				<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+				<p><textarea name="Content"></textarea></p>
+				<input type="submit" name="submit" value="Create Secret">
+			</form>
+		</div>
+		<br>
+		<div>
+			<% @mysecrets.each do |mysecret| %>
+			<table class="table striped-table">
+				<tr>
+				<td><%= mysecret.content %></td>
+		  		<td><form action="/secrets/<%= mysecret.id %>/destroy" method="post">
+					<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+					<input type="submit" name="delete" value="Delete Secret">
+				</form></td>
+				</tr>
+			<% end %>
+			</table>
+		</div>
+</div>
