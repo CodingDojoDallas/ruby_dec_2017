@@ -9,11 +9,11 @@ Rails.application.routes.draw do
 
   get 'secrets/index'
 
-  get 'users/new' => 'users#new', as: :new_user
   post 'users/login' => 'sessions#create', as: :login
   get 'users/:id' => 'users#show', as: :users_show
   get 'users/:id/edit' => 'users#edit', as: :users_edit
   get 'users/new' => 'users#new', as: :users_new
+  get 'users/new' => 'users#new', as: :new_user
   post 'users/create' => 'users#create', as: :create_user
   post 'users/update' => 'users#update', as: :users_update
   post 'users/delete' => 'users#delete', as: :users_delete

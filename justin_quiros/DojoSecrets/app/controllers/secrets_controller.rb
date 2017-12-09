@@ -16,7 +16,7 @@ class SecretsController < ApplicationController
 
 	def destroy
 		@secret = Secret.find(params[:id])
-		@secret.destroy
+		@secret.destroy if @secret.user == current_user
 		@user = current_user
 		redirect_to "/users/#{@user.id}"
 	end

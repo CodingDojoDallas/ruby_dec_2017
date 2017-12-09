@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new]
+  before_action :valid_user, only: [:edit, :show, :update, :destroy]
 
   def new
   	
@@ -53,5 +54,11 @@ class UsersController < ApplicationController
   private
     def form_params
       params.require(:user_form).permit(:name, :email, :password)
+    end
+
+    def valid_user
+      if current_user != User.find(params[:id])
+        redirect_to "/users/#{session[:user_id]}"
+      end
     end
 end
