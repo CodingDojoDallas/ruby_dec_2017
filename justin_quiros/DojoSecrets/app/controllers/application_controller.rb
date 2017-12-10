@@ -11,7 +11,6 @@ class ApplicationController < ActionController::Base
 
   private
     def require_login
-      p "TESSSSTTTTIIINNNNGGG"
       if session[:user_id] == nil
         redirect_to new_session_path
       end
