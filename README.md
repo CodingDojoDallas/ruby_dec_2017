@@ -37,6 +37,7 @@ Layouts / Nested Resources - https://youtu.be/CCRa8GhtJ54 <br>
 Rails TDD - https://youtu.be/zTjWLJdkyDo <br>
 Authentication - https://youtu.be/z3YImITMi8E (Login and Registration) <br>
 Controller Filters - https://youtu.be/b1MxUVZttkE <br>
+Login/Registration Port & Concepts Practice - https://youtu.be/854a-1CAEfo <br>
 
 ## Demos
 Ninja Gold - https://youtu.be/KvHGoN-kw-s <br>
