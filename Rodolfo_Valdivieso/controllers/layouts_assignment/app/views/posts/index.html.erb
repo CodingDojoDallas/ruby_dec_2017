@@ -1,0 +1,64 @@
+<% content_for :title, "All Posts" %>
+<% content_for :some_javascript do %>
+    //alert("This alert comes from the all users page");
+<% end %>
+<% content_for :posts do %>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Content</th>
+				<th>Author</th>
+			</tr>
+		</thead>
+		<tbody>
+		<% @posts.each do |x| %>
+			<tr>
+				<td><%= x.title %></td>
+				<td><%= x.content %></td>
+				<td><%= x.user.first_name %> <%= x.user.last_name %></td>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>
+<% end %>
+
+<% content_for :form do %>
+	<h1>New Post</h1>
+	<% if flash[:failed] %>
+	  <% flash[:failed].each do |value| %>
+        <div class="alert alert-failed"><%= value %></div>
+      <% end %>
+      <% end %>
+	<form action="/posts/create" method="post">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<table class="">
+			<tr>
+				<td><label for="">Title</label></td>
+				<td><input type="text" name="title" value="<%= session[:title] %>"></td>
+			</tr>
+			<tr>
+				<td><label for="">Content</label></td>
+				<td><textarea name="content" id="" cols="30" rows="5"><%= session[:content] %></textarea></td>
+			</tr>
+			<tr>
+				<td><label for="">Author</label></td>
+				<td>
+					<select name="author" id="">
+						<% @users.each do |x| %>
+							<option value="<%= x.id %>" <% if x.id == session[:auhor] %>selected="selected"<% end %>><%= x.first_name %> <%= x.last_name %></option>
+						<% end %>
+					</select>
+				</td>
+			</tr>
+		</table>
+		<input type="submit" value="Submit">
+	</form>
+<% end %>
+
+<% content_for :users do %>
+	<h1>All Users</h1>
+	<form action="/" method="get">
+		<button type="submit">All Users</button>
+	</form>
+<% end %>
