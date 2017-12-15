@@ -1,0 +1,51 @@
+<% content_for :title, 'Posts Index' %>
+<% content_for :three_col_left do %>
+<h3>All Posts</h3>
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Content</th>
+      <th scope="col">Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |p| %>
+        <tr>
+            <td><%= p.title %></td>
+            <td><%= p.content %></td>
+            <td><%= p.user.first_name %> <%= p.user.last_name %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+<% content_for :three_col_middle do %>
+<h3>New Post</h3>
+    <% if flash[:errors] %>
+        <% flash[:errors].each do |err| %>
+            <p class='error'><%= err %></p>
+        <% end %>
+    <% end %>
+    <form action='posts/create' method='post'>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Title" name='post[title]'>
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" placeholder="Content here.." name='post[content]'></textarea>
+        </div>
+        <select class="form-control form-control-lg" name='author'>
+            <% @users.each do |s| %>
+                <option value='<%= s.first_name %>'><%= s.first_name %> <%= s.last_name %></option>
+            <% end %>
+        </select>
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+<% end %>
+
+<% content_for :three_col_right do %>
+    <h3>Back to All Users</h3>
+    <a href="/users" class="btn btn-info" role="button">To Users</a>
+<% end %>

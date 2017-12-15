@@ -1,0 +1,16 @@
+Blog.create(name:'Sports', desc:'Calling all sports fans')
+Blog.create(name:'Video Games', desc:'Where all the gamers at')
+Post.create(title:'Game of the year?', content:'Whats your pick for goty?', blog:Blog.second)
+Post.create(title:'Football fans?', content:'Which football team you support?', blog:Blog.first)
+Message.create(author:'hgibbs62', message:'barcelona for me', post:Post.second)
+Message.create(author:'harshil', message:'PERSONA 5 FOR GOTY', post:Post.first)
+Blog.create(name:'', desc:'').errors.full_messages
+Blog.create(name:'DONALD', desc:'donalddonalddonald')
+Post.create(title:'donalddonald', content:'donalddonalddonald', blog: Blog.third)
+Message.create(author:'donalddonald', message:'donalddonalddonald', post: Post.third)
+Blog.third.destroy
+Blog.where('id<2')
+Post.find(2).update(title:'yooooooooooo')
+Blog.first.posts
+Blog.second.posts.select('content')
+

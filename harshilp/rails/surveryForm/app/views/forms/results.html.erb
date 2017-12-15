@@ -1,0 +1,10 @@
+<% if flash[:success] %>
+    <%= flash[:success] %>
+<% end %>
+<h3>Survey form results:</h3>
+<p>Name: <%= @results['name'] %></p>
+<p>Favorite Language: <%= @results['lang'] %></p>
+<p>Location: <%= @results['loc'] %></p>
+<p>Comments: <%= @results['comment'] %></p>
+
+<%= link_to "Go back", '/' %>

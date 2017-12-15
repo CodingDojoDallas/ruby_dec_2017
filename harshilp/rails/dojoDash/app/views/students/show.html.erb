@@ -1,0 +1,10 @@
+<h1><%= @student.first_name %> <%= @student.last_name %> - <%= @dojo.branch %></h1>
+<p>email: <%= @student.email %></p>
+<h3>Cohort</h3>
+<% if @cohort %>
+<% @cohort.each do |member| %>
+<p><%= member.first_name %></p>
+<% end %>
+<% end %>
+
+<p><a href="/">Home</a> <a href="/dojos/<%= @dojo.id %>/students/<%= @student.id %>/edit">Edit</a> <a href="/dojos/<%= @dojo.id %>/students/<%= @student.id %>" data-method='delete'>Destroy</a> <a href='/dojos/show/<%= @dojo.id %>'>Dojo</a></p>

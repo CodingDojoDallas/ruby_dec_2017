@@ -1,0 +1,19 @@
+rails g model Comment comment:string imageable:references{polymorphic}
+
+add has_many :comments, as: :imageable to the blogs, messages, posts models
+dependent: :destroy #if needed
+
+rake db:migrate
+
+Comment.create(comment:'yeah you tell em', imageable: Message.first)
+
+Message.first.comments #to see if it was made
+
+Comment.first.update(comment:'terrible')
+
+Message.first.comments #to see if update was successful
+
+Comment.first.destroy
+
+Message.first.comments #is empty now
+

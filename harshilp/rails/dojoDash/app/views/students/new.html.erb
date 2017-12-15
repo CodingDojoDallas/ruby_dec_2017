@@ -1,0 +1,15 @@
+<h1>Register a Student</h1>
+
+<% if flash[:errors] %>
+    <% flash[:errors].each do |err| %>
+        <p class='error'><%= err %></p>
+    <% end %>
+<% end %>
+
+<form action='/dojos/<%= @dojo_id %>/students/create' method='post'>
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">​
+    <input name='student[first_name]' type='text' placeholder='First Name'>
+    <input name='student[last_name]' type='text' placeholder='Last Name'>
+    <input name='student[email]' type='text' placeholder='Email'>
+    <button type='submit'>Create</button>
+</form>

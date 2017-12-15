@@ -1,0 +1,23 @@
+<h1> Youkoso Dojo Dash e</h1>
+<h3> Listing <%= @dojos.count %> dojos: </h3>
+<table>
+    <thead>
+        <th>Branch</th>
+        <th>Street</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+        <% @dojos.each do |d| %>
+            <tr>
+                <td><%= d.branch %></td>
+                <td><%= d.street %></td>
+                <td><%= d.city %></td>
+                <td><%= d.state %></td>
+                <td><a href="/dojos/show/<%= d.id %>">Show</a> <a href="/dojos/edit/<%= d.id %>">Edit</a> <a href="/dojos/destroy/<%= d.id %>" data-method="delete">Destroy</a></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+<a href='/dojos/new'>New Dojo</a>

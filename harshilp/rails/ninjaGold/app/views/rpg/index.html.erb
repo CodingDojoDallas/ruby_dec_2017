@@ -1,0 +1,48 @@
+<p>Your gold: <%= @currentGold %></p>
+<div class='building'>
+    <h3>Farm</h3>
+    <p>(earns 10-20 gold)</p>
+    <form action='/process_action' method='post'>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+        <input type='hidden' value='farm' name='place'>
+        <button type='submit'>Find Gold!</button>
+    </form>
+</div>
+<div class='building'>
+    <h3>Cave</h3>
+    <p>(earns 5-10 gold)</p>
+    <form action='/process_action' method='post'>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+        <input type='hidden' value='cave' name='place'>
+        <button type='submit'>Find Gold!</button>
+    </form>
+</div>
+<div class='building'>
+    <h3>House</h3>
+    <p>(earns 2-5 gold)</p>
+    <form action='/process_action' method='post'>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+        <input type='hidden' value='house' name='place'>
+        <button type='submit'>Find Gold!</button>
+    </form>
+</div>
+<div class='building'>
+    <h3>Casino</h3>
+    <p>(earns/takes 0-50 gold)</p>
+    <form action='/process_action' method='post'>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+        <input type='hidden' value='casino' name='place'>
+        <button type='submit'>Find Gold!</button>
+    </form>
+</div>
+
+<div>
+    <h1>Log:</h1>
+    <% @actions.reverse.each do |action| %>
+        <% if action.downcase.include?("earned") %>​
+            <p class="earn"><%= action %></p>​
+        <% else %>​
+            <p class="lose"><%= action %></p>​
+        <% end %>​
+    <% end %>
+</div>

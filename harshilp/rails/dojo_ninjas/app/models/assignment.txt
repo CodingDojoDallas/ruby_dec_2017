@@ -1,0 +1,15 @@
+Dojo.create(name:"CD Sil", city:"Mountain View", state:"CA")
+Dojo.create(name:"CD Dal", city:"Dallas", state:"TX")
+Ninja.create(first_name:'Genji', last_name:'Shimada', dojo: Dojo.first)
+Dojo.first.ninjas
+Dojo.first.ninjas.first.first_name
+Ninja.create(first_name:'Hanze', last_name:'Shimada', dojo: Dojo.first)
+Ninja.second.destroy
+Ninja.create(first_name:'Hanzo', last_name:'Shimada', dojo: Dojo.first)
+Ninja.create(first_name:'Oda', last_name:'Nobunaga', dojo: Dojo.second)
+Ninja.create(first_name:'The Last', last_name:'Samurai', dojo: Dojo.second)
+Dojo.second.ninjas
+Dojo.second.ninjas.order(first_name: :desc)
+Dojo.second.ninjas.order(created_at: :desc).select('first_name')
+
+#add dependent:destroy to dojo then find and destroy a dojo to remove all its ninjas as well

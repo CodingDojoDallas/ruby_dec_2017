@@ -1,0 +1,21 @@
+<form action='/process' method='post'>
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    <label>Name:</label>
+    <input type='text' name='survey[name]'>
+    <label>Dojo Location:</label>
+    <select name="survey[loc]" class="select">
+        <option value="Mountain Valley, CA">Mountain Valley, CA</option>
+        <option value="Seattle, WA">Seattle, WA</option>
+        <option value="Dallas, TX">Dallas, TX</option>
+    </select>
+    <label>Favorite language:</label>
+    <select name="survey[lang]" class="select">
+        <option value="Javascript">Javascript</option>
+        <option  value="Ruby">Ruby</option>
+        <option value="Python">Python</option>
+        <option value="Java">Java</option>
+    </select>
+    <label>Comment:</label>
+    <textarea rows="6" cols="40" name="survey[comment]"></textarea>
+    <button type='submit'>Submit</button>
+</form>
