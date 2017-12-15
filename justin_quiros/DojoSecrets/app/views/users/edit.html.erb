@@ -1,0 +1,23 @@
+<div class="row col-lg-6">
+	<% content_for :title, "DojoSecrets" %>
+		<h1>Update User</h1>
+		<% if flash[:errors] %>
+			<% flash[:errors].each do |error| %>
+				<p><%= error %></p>
+			<% end %>
+		<% end %>
+		<div class="form-group">
+			<form action="<%= users_update_path %>" method="post">
+				<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+				<p><label for="email">Email: </label>
+				<input type="text" name="email" value="<%= current_user.email %>"></p>
+				<p><label for="name">Name: </label>
+				<input type="text" name="name" value="<%= current_user.name %>"></p>
+				<input type="submit" name="submit" value="Update">
+			</form>
+			<form action="<%= users_delete_path %>" method="post">
+				<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+				<input type="submit" name="submit" value="Delete">
+			</form>
+		</div>
+</div>

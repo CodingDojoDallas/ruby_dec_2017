@@ -1,0 +1,56 @@
+<div class="row">
+	<% content_for :title, "Posts" %>
+	<div>
+		<% content_for :post_table do %>
+		<h1>All Posts</h1>
+		<%= flash[:success] %>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Content</th>
+					<th>Author</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @posts.each do |post| %>
+				<tr>
+					<td><%= post.title %></td>
+					<td><%= post.content %></td>
+					<td><%= User.find(post.user_id).first_name%> <%= User.find(post.user_id).last_name%></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<% end %>
+	</div>
+	<div>
+		<% content_for :post_form do %>
+		<h1>New Post</h1>
+		<% if flash[:errors] %>
+			<% flash[:errors].each do |error| %>
+			<p><%= error %></p>
+			<% end %>
+		<% end %>
+		<form action="posts/create" method="post">
+			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+			<p><label for="title">Title: </label>
+			<input type="text" name="post_form[title]"></p>
+			<p><label for="conent">Content: </label>
+			<input type="text" name="post_form[content]"></p>
+			<p><select name='post_form[user_id]'>
+				<% @users.each do |user| %>
+				<option value="<%= user.id %>"><%= user.first_name %> <%= user.last_name %></option>
+				<% end %>
+			</select></p>
+			<input type="submit" name="submit" value="Create">
+		</form>
+		<% end %>
+	</div>
+	<div>
+		<% content_for :user_page do %>
+		<h1>Go to Users Page</h1>
+		<a href="/users"><button>All Users</button></a>
+		<% end %>
+	</div>
+</div>

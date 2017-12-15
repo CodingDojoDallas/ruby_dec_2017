@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<h1><%= @dojo.city %>'s <%= @student.first_name %> <%= @student.last_name %></h1>
+<h5>Email: <%= @student.email %></h5>
+<h5>Cohort</h5>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Email</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @students.each do |student| %>
+
+		<tr>
+			<td><%= student.first_name %></td>
+			<td><%= student.last_name %></td>
+			<td><%= student.email %></td>
+		</tr>
+
+		<% end %>
+	</tbody>
+</table>
+<a href="<%= dojos_path %>">Home</a> | <a href="<%= @student.id %>/edit">Edit</a>
+<br>

@@ -1,0 +1,48 @@
+<div class="row">
+	<% content_for :title, "All Users" %>
+	<div>
+		<% content_for :user_table do %>
+		<h1>All Users</h1>
+		<%= flash[:success] %>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Favorite Language</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @users.each do |user| %>
+				<tr>
+					<td><%= user.first_name %></td>
+					<td><%= user.last_name %></td>
+					<td><%= user.favorite_language %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<% end %>
+	</div>
+	<div>
+		<% content_for :user_form do %>
+		<h1>New User</h1>
+		<% if flash[:errors] %>
+			<% flash[:errors].each do |error| %>
+			<p><%= error %></p>
+			<% end %>
+		<% end %>
+		<form action="users/create" method="post">
+			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+			<p><label for="first_name">First Name: </label>
+			<input type="text" name="user_form[first_name]"></p>
+			<p><label for="last_name">Last Name: </label>
+			<input type="text" name="user_form[last_name]"></p>
+			<p><label for="favorite_lanaguage">Favorite Language: </label>
+			<input type="text" name="user_form[favorite_language]"></p>
+			<input type="submit" name="submit" value="Create">
+		</form>
+		<a href="/posts"><button>All Posts</button></a>
+		<% end %>
+	</div>
+</div>

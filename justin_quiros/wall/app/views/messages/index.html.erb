@@ -1,0 +1,19 @@
+<h4>CodingDojo Wall | Welcome <%= session[:username] %> 
+	<a href="logout" id="logout"><button value="Log Out"></button></a></h4>
+<% if flash[:errors] %>
+	<% flash[:errors].each do |error| %>
+		<p><%= error %></p>
+	<% end %>
+<% end %>
+<form action="<%= messages_new_path %>" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+	<p><textarea type="text" name="content"></textarea></p>
+	<input type="submit" name="submit" value="Post a Message">
+</form>
+
+<% @messages.each do |message| %>
+<h3><%= message.user.username %> <%= message.created_at %></h3>
+	<p><%= message.content %></p>
+	<br>
+	<br>
+<% end %>
