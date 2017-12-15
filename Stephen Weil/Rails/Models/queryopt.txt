@@ -1,0 +1,29 @@
+players = Player.all
+players.each do |player|
+    puts player.name
+    puts player.team.name
+    puts player.team.stadium
+    puts player.team.mascot
+end
+
+This performs one query to get all players, and then 498*3 = 1494 queries to get team information.
+
+players = Player.includes(:team)
+players.each do |player|
+    puts player.name
+    puts player.team.name
+    puts player.team.stadium
+    puts player.team.mascot
+end
+
+This performs only two queries, one to get the players, and one to retrieve their team information.
+
+players = Player.includes(:team).where("teams.name = 'Chicago Bulls'").references(:team)
+
+players = Player.joins(:team).select("players.*", "teams.name as TeamName", "teams.stadium as stadium").where("teams.stadium = 'Staples Center'")
+
+teams = Team.joins(:players).select("teams.*, players.name").where("players.name LIKE 'Z%'")
+
+teams = Team.includes(:players).select("teams.*, players.name").where("players.name LIKE 'Z%'").references(:players)
+
+

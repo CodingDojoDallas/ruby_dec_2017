@@ -1,0 +1,53 @@
+<% content_for :title, "Users" %>
+
+<% content_for :table do %>
+<h1>All Users</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Favorite Language</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name %></td>
+      <td><%= user.favorite_language %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+<% content_for :form do %>
+<h1>New User</h1>
+<form action="/users" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <div class="form-group">
+        <label for="first_name">First Name:</label>
+        <input type="text" name="user[first_name]" class="form-control" id="first_name">
+        <% if flash[:first_name] %>
+        <p class="error"><%= flash[:first_name] %></p>
+        <% end %>
+    </div>
+    <div class="form-group">
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="user[last_name]" class="form-control" id="last_name">
+        <% if flash[:last_name] %>
+        <p class="error"><%= flash[:last_name] %></p>
+        <% end %>
+    </div>
+    <div class="form-group">
+        <label for="favorite_language">Favorite Language:</label>
+        <input type="text" name="user[favorite_language]" class="form-control" id="favorite_language">
+        <% if flash[:favorite_language] %>
+        <p class="error"><%= flash[:favorite_language] %></p>
+        <% end %>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<a href="/posts"><button type="button" class="btn btn-info">All Posts</button></a>
+<% end %>

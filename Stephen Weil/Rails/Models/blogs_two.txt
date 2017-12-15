@@ -1,0 +1,20 @@
+Owner.create(user: User.first, blog: Blog.first)
+Owner.create(user: User.first, blog: Blog.find(2))
+Owner.create(user: User.first, blog: Blog.find(3))
+Owner.create(user: User.find(2), blog: Blog.find(2))
+Owner.create(user: User.find(3), blog: Blog.find(3))
+Post.create(title: "This is a post", content: "About nothing really", user: User.first, blog: Blog.find(2))
+Post.create(title: "This is another post", content: "Still about nothing really", user: User.first, blog: Blog.find(2))
+Post.create(title: "This post is pretty much like the others", content: "I mean, really, what could be different?", user: User.find(2), blog: Blog.last)
+Message.create(message: "Yeah, that's a fair point", post: Post.first, user: User.first)
+Message.create(message: "Nah that's dumb", post: Post.first, user: User.find(2))
+Message.create(message: "Hey wassup dawg", post: Post.find(3), user: User.find(3))
+Post.find(2).update(user: User.last)
+Post.find(2).update(content: "This is new and original content!")
+User.find(3).blogs
+User.find(3).posts
+User.find(3).messages
+Post.joins(:user).select("posts.*, users.first_name as User").where("blog_id = 3")
+Message.joins(:user).joins(:post).select("messages.*, users.first_name as User_FN, users.last_name as User_LN, users.email_address as User_Email").where("posts.blog_id = 2")
+User.joins(:blogs).where("blog_id = 1")
+Owner.find_by("blog_id = 1 AND user_id = 1").destroy

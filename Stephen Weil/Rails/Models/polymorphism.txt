@@ -1,0 +1,6 @@
+rails g model Comment commentable:references{polymorphic}
+Comment.create(commentable: User.first)
+Comment.create(commentable: Post.first)
+Comment.create(commentable: Blog.find(2))
+Comment.create(commentable: Message.last)
+

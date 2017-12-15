@@ -1,0 +1,9 @@
+<h1>Sign In</h1>
+<form action="<%= login_path %>" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="text" name="username" placeholder="Username">
+    <% if flash[:username] %>
+    <p class="error"><%= flash[:username] %></p>
+    <% end %>
+    <button type="submit">Sign In</button>
+</form>

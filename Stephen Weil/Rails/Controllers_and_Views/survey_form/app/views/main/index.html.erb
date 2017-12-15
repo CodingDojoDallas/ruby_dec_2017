@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Survey Form</title>
+</head>
+<body>
+    <form action="/submit" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <p>Name: <input type="name" name="data[name]"></p>
+        <p>Location: <select name="data[location]">
+            <option value="Mountain View">Mountain View</option>
+            <option value="Dallas">Dallas</option>
+            <option value="Seattle">Seattle</option>
+        </select></p>
+        <p>Favorite Language: <select name="data[language]">
+            <option value="Ruby">Ruby</option>
+            <option value="Javascript">Javascript</option>
+            <option value="Python">Python</option>
+            <option value="Klingon">Klingon</option>
+        </select></p>
+        <textarea name="data[comment]"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
