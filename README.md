@@ -40,6 +40,7 @@ Controller Filters - https://youtu.be/b1MxUVZttkE <br>
 Login/Registration Port & Concepts Practice - https://youtu.be/854a-1CAEfo <br>
 Belt Reviewer - https://youtu.be/4YxCpdPq1pI <br>
 Postgres Self-Join Many-To-Many - https://youtu.be/wSD-yTp2cdw <br>
+Deployment - https://youtu.be/kw_aI59tr98 <br>
 
 ## Demos
 Ninja Gold - https://youtu.be/KvHGoN-kw-s <br>
