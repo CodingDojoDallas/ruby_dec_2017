@@ -1,0 +1,32 @@
+rails new [project_name]
+
+cd project_name
+
+rails server -b 0.0.0.0
+rails s -b 0.0.0.0
+(binds to localhost:3000)
+
+Ctrl+C to stop webserver
+
+rails console
+exit to exit
+
+
+FOLDER STRUCTURE
+app folder most important, holds mvc folders and assests (images, js, stylesheets)
+
+config folder
+    - config files, tests, productions
+    - routes.rb, routes files
+
+db folder
+    - db info
+    - Gemfile
+        - packages of app
+    
+
+IMPORTANT TIPS
+- by default, does not use MySQL, uses SQLite.
+- if deploying, may want to switch
+    - Heroku uses PostgreSQL
+    

@@ -1,0 +1,20 @@
+Visibility and Inheritance
+
+By default, all methods in Ruby are public
+3 kinds of methods:
+    - public
+    - protected
+    - private
+
+Different from Java, C++
+
+public: methods that can be called within the class, subclasses, and instances without restriction
+protected: methods that can ONLY be called within the class and subclasses
+    - either EXPLICITLY or IMPLICITLY
+    - can't be called directly
+private: methods that can ONLY be called within the class and subclasses IMPLICITLY
+
+Inheritance
+A class can INHERIT methods from parent classes. When a class inherits from a parent class, it is called the child class or subclass. 
+
+PUBLIC

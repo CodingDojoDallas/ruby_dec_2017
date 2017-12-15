@@ -1,0 +1,44 @@
+In video
+installed bcrypt and hirb through Gemfile
+
+Gems
+- bits of code that you can use on project to enhance functionality
+- little libraries can include in project to cut down code needed to write
+- gems built into ruby, so can work for Rails project, most gems designed with Rails in mind
+- gems have ups and downs
+
+Pros
+- complex task easier
+- less code, more time to focus on project
+- best are easy to use
+
+Cons
+- made by community, so hard to ensure quality. some are great, some will take longer to integrate than just building from scratch
+- gems may also have bugs devs are unaware of
+- need whole gem installed, even if just need one piece of functionality, can lower performance
+- not as easy to understand what's going on behind scene
+
+
+Installing gem is straightforward. Gemfile is in root directory of rails project
+
+gem 'gem_name', '>= version_num'
+
+In terminal, need to do bundle install inside project
+
+
+hirb
+    - makes terminal do queries and look at data 1000x better. puts query results into table so can see data much more effectively when in Rails console.
+    - in Rails console, type Hirb.enable
+    - resize window/table, by Hirb.disable, then .enable again
+
+bcrypt
+simple_form 
+    - easier forms, taps into next gem for styling
+bootstrap-sass
+    - CSS library at end of CSS section, have gem for Rails. Can use bootstrap throughout project without having to use a cdn
+carrierwave
+    - makes easy to upload files, images, pdf docs and anything you can think of
+capybara and rspec
+    - Helps test our apps to ensure everything is working the way it should
+
+Thousands of great gems out there.

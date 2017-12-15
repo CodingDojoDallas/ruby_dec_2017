@@ -1,0 +1,21 @@
+MVC Model View Controller
+- helps organize, more modular
+
+Using framework enforces rules
+- data/database needs to inside folder/class called Models
+- HTML rendering is Views
+- URL requests handled with routes
+- business logic is Controllers
+- config folder for storing things related to configuring the app (db, session, security encryption, etc.)
+
+Downside of using Ruby on Rails
+- overhead to running a framework (loads a lot of files for each URL request), can slow things down a bit
+- May be security bug with framework itself, which probably don't have control of
+- dev support of framework may stop
+- methods/functions written by other devs, so dependent on others' code, may not be bad, but less control
+
+Advantages outweight disadvantages
+
+Another advantage
+- lot easier to pick up another MVC framework, even if using different language
+- Ruby on Rails leads to Laravel (PHP), .NET(C#), Spring(JAVA), YII(PHP), etc.

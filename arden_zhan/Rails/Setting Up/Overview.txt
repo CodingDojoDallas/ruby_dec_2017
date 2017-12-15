@@ -1,0 +1,16 @@
+Advantages
+- need to know MVC, OOP, ORM, and version control to build apps properly.
+- makes code quality much higher but also creates higher learning curve compared to other MVC frameworks
+- great testing environment. Rspec and Capybara are powerful ruby gems that allow writing automated tests
+- Heroku can be used to deploy Ruby on Rails apps on cloud for free in minutes. Also scales db and server needs automatically
+- Gems. Allows importing of third parties libraries via gems
+- Keeps track of changes to the db structure with each version of the code through 'migrations'
+- Rails believes in convention over config. Although the framework is very opinionated, if you follow its conventions, it makes development a lot faster
+- Great community
+
+Disadvantages
+- Can't go and build web app if just beginner
+- have to be comfortable writing commands from terminal
+- Ruby on Rails does a lot of behind the scenes work, so may not have full understanding of what's going on
+- some gems/libraries may have conflicts with each other, and may spend hours trying to solve something that is caused by other gems / libraries
+- debugging code in Ruby on Rails can be time consuming, especially if don't know what's happening behind the scenes
